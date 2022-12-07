@@ -7,10 +7,10 @@ def get_range(range_string):
 total = 0
 for line in data:
     first_range, second_range = line.strip().split(",")
-    first_range = get_range(first_range)
-    second_range = get_range(second_range)
+    first_range = set(get_range(first_range))
+    second_range = set(get_range(second_range))
 
-    if(any(i in second_range for i in first_range)):
+    if(first_range.issubset(second_range) or second_range.issubset(first_range)):
         total += 1
 
 print(total)
