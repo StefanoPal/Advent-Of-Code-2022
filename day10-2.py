@@ -7,12 +7,12 @@ with open("inputd10.txt", "r") as f:
 
 register_value = 1
 current_cycle = 1
-screen = list("."*280)
+screen = list("#"*280)
 
 def draw(current_cycle: int, register_value: int):
     global screen
     if((current_cycle % 40) in [register_value - 1, register_value, register_value + 1]):
-        screen[current_cycle] = "#"
+        screen[current_cycle] = "\033[31m" + "#" + "\033[0m"
 
     single_char = "\033[A"
     print(f"{single_char*8}\f")
